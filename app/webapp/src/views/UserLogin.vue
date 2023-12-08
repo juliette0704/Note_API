@@ -17,6 +17,9 @@
         <div class="form-row">
             <Button type="button" v-on:click="login()">Connection</button>
         </div>
+        <div class="form-row">
+            <router-link to="/register">Pas encore de compte? Inscrivez-vous ici</router-link>
+        </div>
     </div>
 </template>
 
@@ -42,7 +45,7 @@ export default {
     methods: {
         async login() {
             try {
-                const response = await axios.post('http://localhost:4000/login', {
+                const response = await axios.post('http://localhost:3000/login', {
                     username: this.input.username,
                     password: this.input.password
                 });
