@@ -7,7 +7,6 @@ exports.shareNote = async (req, res) => {
 
         const note = await Note.findByPk(noteId);
         const user = await User.findByPk(userId);
-
         if (!note || !user) {
             return res.status(404).send('Note ou utilisateur non trouvé');
         }
@@ -51,7 +50,7 @@ exports.getUserNotes = async (req, res) => {
             return res.status(404).send('Utilisateur non trouvé');
         }
 
-        res.json(user.Notes);
+        res.json(user.notes);
     } catch (error) {
         console.error('Erreur:', error);
         res.status(500).send(error.message);
