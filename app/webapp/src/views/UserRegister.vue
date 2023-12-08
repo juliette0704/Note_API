@@ -41,7 +41,7 @@ export default {
     methods: {
         async login() {
             try {
-                const response = await axios.post('http://localhost:3000/register', {
+                const response = await axios.post('http://localhost:4000/register', {
                     username: this.input.username,
                     password: this.input.password,
                     email: this.input.email

@@ -84,7 +84,7 @@ export default {
                 userId: this.shareForm.userId
             };
             try {
-                await axios.post('http://localhost:3000/share-note', shareData);
+                await axios.post('http://localhost:4000/share-note', shareData);
                 alert('J\'ai partagé!');
             } catch (error) {
                 console.error('Mauvais numéro d\'utilisateur...', error);
@@ -99,7 +99,7 @@ export default {
         async loadNotes() {
             const userId = this.$route.params.userId;
             try {
-                const response = await axios.get(`http://localhost:3000/notes/${userId}`);
+                const response = await axios.get(`http://localhost:4000/notes/${userId}`);
                 this.notes = response.data;
                 console.log(response.data)
             } catch (error) {
@@ -115,7 +115,7 @@ export default {
                 userId: userId
             };
             try {
-                const response = await axios.post('http://localhost:3000/new-note', noteData);
+                const response = await axios.post('http://localhost:4000/new-note', noteData);
                 this.notes.push(response.data);
                 this.clearForm();
             } catch (error) {
@@ -129,7 +129,7 @@ export default {
                 multimedia: this.noteForm.multimedia
             };
             try {
-                await axios.put(`http://localhost:3000/modif-note/${this.editedNote.id}`, updatedNoteData);
+                await axios.put(`http://localhost:4000/modif-note/${this.editedNote.id}`, updatedNoteData);
                 window.location.reload();
             } catch (error) {
                 console.error('Erreur de maj de note:', error);
@@ -137,7 +137,7 @@ export default {
         },
         async deleteNote(noteToDelete) {
             try {
-                await axios.post(`http://localhost:3000/delete-note/${noteToDelete.id}`);
+                await axios.post(`http://localhost:4000/delete-note/${noteToDelete.id}`);
                 const indexToDelete = this.notes.findIndex((note) => note.id === noteToDelete.id);
                 if (indexToDelete !== -1) {
                     this.notes.splice(indexToDelete, 1);
