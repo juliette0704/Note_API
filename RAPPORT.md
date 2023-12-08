@@ -53,8 +53,8 @@ Pour lancer le projet, les étapes suivantes doivent être suivies :
 La base de donée comprend déja:
 
 2 utilisateurs:
-    1. username: Juliette, password: test
-    2. username: Emilie, password: test
+1. username: Juliette, password: test
+2. username: Emilie, password: test
 
 1 note partagé entre ces deux utilisateurs
 2 note avec un multimédia (photo)
