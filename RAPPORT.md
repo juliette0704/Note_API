@@ -47,6 +47,7 @@ Pour lancer le projet, les étapes suivantes doivent être suivies :
 1. **Prérequis** : Avoir Docker installé sur votre machine.
 2. **Clonage du Répertoire** : Cloner le dépôt Git.
 3. **Démarrage avec Docker** : Utiliser `docker-compose up` pour démarrer le serveur backend, le front et la base de données.
+4. **accéder au front**: http://localhost:3010
 
 ## Test
 
