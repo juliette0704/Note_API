@@ -11,8 +11,8 @@ app.use(express.json());
 app.use('/', userRoutes);
 app.use('/', noteRoute)
 
-User.belongsToMany(Notes, { through: 'UserNotes' });
-Notes.belongsToMany(User, { through: 'UserNotes' });
+User.belongsToMany(Notes, { through: 'usernotes' });
+Notes.belongsToMany(User, { through: 'usernotes' });
 // sequelize.sync({ force: true });
 
 (async () => {

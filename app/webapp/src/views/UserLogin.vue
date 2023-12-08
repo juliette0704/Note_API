@@ -1,19 +1,3 @@
-<!-- <template>
-    <div id="login">
-        <h1>Connexion</h1>
-        <span class="p-input-icon-left">
-            <i class="pi pi-user"></i>
-            <InputText type="text" name="username" v-model="input.username" placeholder="Nom d'utilisateur" />
-        </span>
-        <span class="p-input-icon-left">
-            <i class="pi pi-lock"></i>
-            <InputText type="password" name="password" v-model="input.password" placeholder="Mot de passe" />
-        </span>
-        <div class="error-message" v-if="errorMessage">{{ errorMessage }}</div>
-        <Button type="button" v-on:click="login()">Connection</button>
-    </div>
-</template> -->
-
 <template>
     <div id="login">
         <h1>Connexion</h1>

@@ -1,4 +1,4 @@
-# Rapport du Projet de Backend pour Application de Notes
+# Rapport du Projet d'application de notes
 
 ## Introduction
 

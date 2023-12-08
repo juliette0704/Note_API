@@ -1,0 +1,48 @@
+version: '3.1'
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    ports:
+      - "3360:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_PASSWORD}
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+    volumes:
+      - ./dump:/docker-entrypoint-initdb.d
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+  frontend:
+    image: node:18
+    working_dir: /app/webapp
+    volumes:
+      - ./app/webapp:/app/webapp
+    ports:
+      - "3010:8080"   
+    command: sh -c "npm install && npm run serve"
+    depends_on:
+      - db
+
+  backend:
+    image: node:18
+    working_dir: /app/Server
+    volumes:
+      - ./app/Server:/app/Server
+    ports:
+      - "4000:3000"
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - SECRET_KEY=${SECRET_KEY}
+    command: sh -c "npm install && npm start"
+    depends_on:
+      - db
